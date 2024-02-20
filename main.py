@@ -7,9 +7,13 @@ def translacao(img, tx, ty):
     l, c = img.size
     new_img = Image.new("L", (l*2, c*2))
 
-    m = np.array([[1, 0, tx],
-                  [0, 1, ty],
-                  [0, 0,  1]])
+    m = np.array(
+            [
+                [1, 0, tx],
+                [0, 1, ty],
+                [0, 0,  1]
+            ]
+        )
 
     for x in range(l):
         for y in range(c):
@@ -32,9 +36,13 @@ def escala(img, sx, sy):
         for y in range(c*2):
             new_img.putpixel((x, y), (255))
 
-    m = np.array([[sx, 0, 0],
-                  [0, sy, 0],
-                  [0, 0, 1]])
+    m = np.array(
+            [
+                [sx, 0, 0],
+                [0, sy, 0],
+                [0, 0, 1]
+            ]
+        )
 
     for x in range(l):
         for y in range(c):
@@ -56,9 +64,13 @@ def rotacao(img, ang, tx, ty):
     linha, coluna = new_img.size
     ang = math.radians(ang)
 
-    m = np.array([[math.cos(ang), -math.sin(ang), 0 + tx],
-                  [math.sin(ang), math.cos(ang), 0 + ty],
-                  [0, 0, 1]])
+    m = np.array(
+            [
+                [math.cos(ang), -math.sin(ang), 0 + tx],
+                [math.sin(ang), math.cos(ang), 0 + ty],
+                [0, 0, 1]
+            ]
+        )
 
     for x in range(l):
         for y in range(c):
@@ -78,13 +90,23 @@ def espelhamento(img, op):
     new_img = Image.new("L", (l, c))
 
     if op == 1:
-        m = np.array([[-1, 0, 0],
-                      [ 0, 1, 0],
-                      [ 0, 0, 1]])
+        m = np.array(
+                [
+                    [-1, 0, 0],
+                    [ 0, 1, 0],
+                    [ 0, 0, 1]
+                ]
+            )
+        
     if op == 2:
-        m = np.array([[1,  0, 0],
-                      [0, -1, 0],
-                      [0,  0, 1]])
+        m = np.array(
+                [
+                    [1,  0, 0],
+                    [0, -1, 0],
+                    [0,  0, 1]
+                ]
+            )
+        
     for x in range(l):
         for y in range(c):
             pxl = img.getpixel((x, y))
@@ -120,6 +142,7 @@ if a == 1:
     img_trans.save('image/depois_trans.jpg')
 
     plt.show()
+
 if a == 2:
     img_ori = escala(img, 1, 1)
     sx = float(input('Sx: '))
@@ -136,6 +159,7 @@ if a == 2:
     img_esc.save('image/depois_esc.jpg')
 
 if a == 3:
+
     img_ori = rotacao(img, 0, 0, 0)
     ang = float(input('Angulo: '))
     tx = float(input('Tx: '))
@@ -153,6 +177,7 @@ if a == 3:
     img_rot.save('image/depois_rot.jpg')
 
 if a == 4:
+    
     print('1 - Espelhamento Vertical')
     print('2 - Espelhamento Hoizontal')
     b = int(input('Digite aqui: '))
