@@ -7,8 +7,8 @@ def arredondarCoordenadas(x, y):
     return xm, ym
 
 def mostrarEspaco(img):
-    matplotlib.pyplot.imshow(img, cmap = "viridis", interpolation = "nearest") # cmap = viridis & interpolation = nearest
-    matplotlib.pyplot.gca().invert_yaxis() # inverter o eixo Y que tava aparecendo errado
+    matplotlib.pyplot.imshow(img)
+    matplotlib.pyplot.gca().invert_yaxis()
     matplotlib.pyplot.grid(False)
     matplotlib.pyplot.show()
 
