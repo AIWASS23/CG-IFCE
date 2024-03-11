@@ -7,6 +7,10 @@ def hermiteMatrix(a, b, c, d):
         [-b, a, -2*b, -c],
         [0, 0, d, 0],
         [0, 0, -d, 0]
+        
+        # a -> inclinação em relaçao ao eixo y
+        # b -> origem da curva em relação ao eixo x
+        
     ])
     return matrizDeHermite
 
