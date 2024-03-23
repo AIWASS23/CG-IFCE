@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 import numpy as np
 
-def printRasterArray(text, array, polygon_coords=None):
+def printRasterArray(text, array, polygon_coords = None):
     # Plot the array
     plt.imshow(array, cmap='binary', interpolation='None')
     plt.colorbar()  # Add a color bar to show mapping of values
