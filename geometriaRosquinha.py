@@ -1,4 +1,3 @@
-#Grupo: Diogo Conde Soler Teixeira dos Santos
 import math
 import array
 

@@ -55,7 +55,7 @@ cap.release()
 cv2.destroyAllWindows()
 
 # Cria um botão que diz "Vetorizar"
-button = tk.Button(root, text="Vetorizar", command=vectorize)
+button = tk.Button(root, text="Vetorizar", command="vector")
 
 # Adiciona o botão à janela
 button.pack()

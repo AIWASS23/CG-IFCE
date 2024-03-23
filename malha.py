@@ -1,4 +1,3 @@
-#Grupo: Diogo Conde Soler Teixeira dos Santos
 from OpenGL import GL
 from array import array
 import ctypes
