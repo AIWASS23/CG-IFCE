@@ -1,0 +1,45 @@
+Métodos:
+Implemente o algoritmo de rasterização de retas de um modelo (segmento de reta) no
+R2 para uma imagem. Implemente o algoritmo de rasterização de polígonos convexos.
+Implemente as curvas usando Hermite.
+
+Requisitos:
+
+1. Na implementação/desenvolvimento do trabalho para rasterização de retas:
+- obtenha imagens da rasterização de pelo menos 5 segmentos de retas diferentes
+para pelo menos 4 resoluções diferentes (sendo preferencial que a resolução seja
+definida de forma genérica).
+- implemente tal algoritmo para as situações nas quais |Δx| > |Δy| e |Δy| > |Δx|.
+- implemente considerando situações em que as semirretas crescem (m > 0) ou
+decrescem (m < 0).
+- avalie situações e ajuste o algoritmo para situações na qual se tem uma reta na
+vertical ou na horizontal. Logo, adicione dois segmentos de retas, um vertical e outro
+horizontal.
+
+2. Na implementação/desenvolvimento do trabalho para rasterização de curvas de Hermite:
+- obtenha imagens da rasterização de pelo menos 5 curvas de Hermite diferentes.
+- gere pelo menos uma curva de Hermite com P1 e P2 sendo iguais.
+- obtenha curvas com pelo menos 3 quantidade de pontos diferentes, com base em
+valores regularmente espaçados para o parâmetro t da curva, e conecte-os em
+segmentos de retas para descrever a curva e, posteriormente, realizar a rasterização de
+tais curvas por sucessivas rasterização dos segmentos de retas obtidos. Mostre que a
+qualidade da curva depende da quantidade de segmentos de retas usados para
+descrever a curva.
+
+3. Na implementação/desenvolvimento do trabalho para rasterização de polígonos:
+- obtenha imagens da rasterização de pelo menos 6 polígonos (triângulos equiláteros,
+quadrados e hexágonos, 2 para cada) também para pelo menos 4 resoluções
+diferentes.
+
+4. De uma forma mais geral:
+- considere que os elementos (segmentos de reta, curvas de Hermite e polígonos) são
+definidas no contínuo em um espaço normalizado bidimensional com componentes (x1
+e x2) no intervalo[-1,+1] e então convertidos para as resoluções 100 x 100, 300 x 300,
+800 x 600 e 1920 x 1080. Use uma descrição intermediária, se achar conveniente.
+- compare tais elementos gerados em termos de qualidade para as diversas resoluções
+(e número de pontos, para o caso das curvas de Hermite).
+- avalie e implemente considerando que há mais de um elemento (inclusive de tipos
+diferentes) ao mesmo tempo no espaço normalizado.
+- crie uma interface gráfica para mostrar os elementos no espaço normalizado e a(s)
+imagem(s) gerada(s), bem como para o usuário definir/criar os elementos a serem
+colocados no espaço normalizado. Use sua imaginação na elaboração de tal interface.
