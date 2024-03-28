@@ -206,37 +206,37 @@ def scanline(polygons, resolution):
 # matriz_rasterizada_horizontal = intervalToBinaryMatrix(fragmentos_horizontal, (100,100))
 # printRasterArray("horizontal", matriz_rasterizada_horizontal)
 
-# # Pontos de controle e tangentes para 5 curvas de Hermite diferentes
-# points1 = [(1, 1), (3, 5), (7, 2), (9, 6)]
-# tangents1 = [(2, 4), (4, 1), (8, 5), (10, 3)]
+# Pontos de controle e tangentes para 5 curvas de Hermite diferentes
+points1 = [(1, 1), (3, 5), (7, 2), (9, 6)]
+tangents1 = [(2, 4), (4, 1), (8, 5), (10, 3)]
 
-# points2 = [(1, 1), (4, 6), (8, 2), (10, 5)]
-# tangents2 = [(2, 5), (5, 2), (9, 4), (11, 3)]
+points2 = [(1, 1), (4, 6), (8, 2), (10, 5)]
+tangents2 = [(2, 5), (5, 2), (9, 4), (11, 3)]
 
-# points3 = [(1, 1), (2, 7), (6, 3), (9, 8)]
-# tangents3 = [(2, 6), (3, 1), (7, 4), (10, 9)]
+points3 = [(1, 1), (2, 7), (6, 3), (9, 8)]
+tangents3 = [(2, 6), (3, 1), (7, 4), (10, 9)]
 
-# points4 = [(1, 1), (3, 4), (6, 6), (10, 1)]
-# tangents4 = [(2, 3), (4, 5), (7, 1), (11, 2)]
+points4 = [(1, 1), (3, 4), (6, 6), (10, 1)]
+tangents4 = [(2, 3), (4, 5), (7, 1), (11, 2)]
 
-# points5 = [(1, 1), (4, 5), (7, 1), (10, 7)]
-# tangents5 = [(2, 4), (5, 1), (8, 4), (11, 6)]
+points5 = [(1, 1), (4, 5), (7, 1), (10, 7)]
+tangents5 = [(2, 4), (5, 1), (8, 4), (11, 6)]
 
-# # Rasterização e plotagem
-# for i, (points, tangents) in enumerate([(points1, tangents1), (points2, tangents2), (points3, tangents3), (points4, tangents4), (points5, tangents5)], 1):
-#     curve_points = hermite_blend_curve(points, tangents)
-#     x_vals, y_vals = normalize_coordinates(curve_points)
-#     curve_matrix = intervalToBinaryMatrix((x_vals, y_vals), (100, 100))
-#     printRasterArray(f"Hermite Curve {i}", curve_matrix)
+# Rasterização e plotagem
+for i, (points, tangents) in enumerate([(points1, tangents1), (points2, tangents2), (points3, tangents3), (points4, tangents4), (points5, tangents5)], 1):
+    curve_points = hermite_blend_curve(points, tangents)
+    x_vals, y_vals = normalize_coordinates(curve_points)
+    curve_matrix = intervalToBinaryMatrix((x_vals, y_vals), (100, 100))
+    printRasterArray(f"Hermite Curve {i}", curve_matrix)
     
-# # Pontos de controle e tangentes para curva de Hermite com P1 = P2
-# points_equal = [(1, 1), (1, 2), (7, 2), (9, 6)]
-# tangents_equal = [(2, 4), (2, 1), (8, 5), (10, 3)]
+# Pontos de controle e tangentes para curva de Hermite com P1 = P2
+points_equal = [(1, 1), (1, 2), (7, 2), (9, 6)]
+tangents_equal = [(2, 4), (2, 1), (8, 5), (10, 3)]
 
-# curve_points_equal = hermite_blend_curve(points_equal, tangents_equal)
-# x_vals_equal, y_vals_equal = normalize_coordinates(curve_points_equal)
-# curve_matrix_equal = intervalToBinaryMatrix((x_vals_equal, y_vals_equal), (100, 100))
-# printRasterArray("Hermite Curve with P1 = P2", curve_matrix_equal)
+curve_points_equal = hermite_blend_curve(points_equal, tangents_equal)
+x_vals_equal, y_vals_equal = normalize_coordinates(curve_points_equal)
+curve_matrix_equal = intervalToBinaryMatrix((x_vals_equal, y_vals_equal), (100, 100))
+printRasterArray("Hermite Curve with P1 = P2", curve_matrix_equal)
 
 # Pontos de controle e tangentes para curvas de Hermite com diferentes quantidades de pontos
 points_2 = [(1, 1), (9, 6)]
@@ -255,4 +255,39 @@ for i, (points, tangents) in enumerate([(points_2, tangents_2), (points_3, tange
     curve_matrix = intervalToBinaryMatrix((x_vals, y_vals), (100, 100))
     printRasterArray(f"Hermite Curve with {len(points)} points", curve_matrix)
 
+# # Triângulos equiláteros
+# triangle1 = [(50, 10), (10, 90), (90, 90)]
+# triangle2 = [(50, 90), (10, 10), (90, 10)]
+# normalized_polygonT1 = normalize_coordinates(triangle1)
+# normalized_polygonT2 = normalize_coordinates(triangle2)
+# scanT1 = scanline(normalized_polygonT1, (1920,1080))
+# scanT2 = scanline(normalized_polygonT2, (1920,1080))
+# matrixT1 = intervalToBinaryMatrix(scanT1, (1920,1080))
+# matrixT2 = intervalToBinaryMatrix(scanT2, (1920,1080))
+# printRasterArray("Triangulo Equilatero", matrixT1)
+# printRasterArray("Triangulo Equilatero", matrixT2)
+
+# # Quadrados
+# square1 = [(20, 20), (80, 20), (80, 80), (20, 80)]
+# square2 = [(30, 30), (70, 30), (70, 70), (30, 70)]
+# normalized_polygonQ1 = normalize_coordinates(square1)
+# normalized_polygonQ2 = normalize_coordinates(square2)
+# scanQ1 = scanline(normalized_polygonQ1, (1920,1080))
+# scanQ2 = scanline(normalized_polygonQ2, (1920,1080))
+# matrixQ1 = intervalToBinaryMatrix(scanQ1, (1920,1080))
+# matrixQ2 = intervalToBinaryMatrix(scanQ2, (1920,1080))
+# printRasterArray("Triangulo Equilatero", matrixQ1)
+# printRasterArray("Triangulo Equilatero", matrixQ2)
+
+# # Hexágonos
+# hexagon1 = [(50, 10), (85, 30), (85, 70), (50, 90), (15, 70), (15, 30)]
+# hexagon2 = [(50, 30), (75, 45), (75, 75), (50, 90), (25, 75), (25, 45)]
+# normalized_polygonH1 = normalize_coordinates(hexagon1)
+# normalized_polygonH2 = normalize_coordinates(hexagon2)
+# scanH1 = scanline(normalized_polygonH1, (1920,1080))
+# scanH2 = scanline(normalized_polygonH2, (1920,1080))
+# matrixH1 = intervalToBinaryMatrix(scanH1, (1920,1080))
+# matrixH2 = intervalToBinaryMatrix(scanH2, (1920,1080))
+# printRasterArray("Triangulo Equilatero", matrixH1)
+# printRasterArray("Triangulo Equilatero", matrixH2)
 
