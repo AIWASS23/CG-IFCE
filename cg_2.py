@@ -164,47 +164,47 @@ def scanline(polygons, resolution):
 
 # ------------------------ Deu bom ------------------------------------- #
 
-# # Segmento com m > 0
-# reta_M_maior_0 = [(1, 1), (5, 8)]
-# reta_normalizado_M_maior_0 = normalize_coordinates(reta_M_maior_0)
-# fragmentos_M_maior_0 = rasterizar_linha(reta_normalizado_M_maior_0)
-# matriz_rasterizada_M_maior_0 = intervalToBinaryMatrix(fragmentos_M_maior_0, (100,100))
-# printRasterArray(" m > 0", matriz_rasterizada_M_maior_0)
+# Segmento com m > 0
+reta_M_maior_0 = [(1, 1), (5, 8)]
+reta_normalizado_M_maior_0 = normalize_coordinates(reta_M_maior_0)
+fragmentos_M_maior_0 = rasterizar_linha(reta_normalizado_M_maior_0)
+matriz_rasterizada_M_maior_0 = intervalToBinaryMatrix(fragmentos_M_maior_0, (100,100))
+printRasterArray(" m > 0", matriz_rasterizada_M_maior_0)
 
-# # Segmento com m < 0
-# reta_M_menor_0 = [(1, 8), (5, 1)]
-# reta_normalizado_M_menor_0 = normalize_coordinates(reta_M_menor_0)
-# fragmentos_M_menor_0 = rasterizar_linha(reta_normalizado_M_menor_0)
-# matriz_rasterizada_M_menor_0 = intervalToBinaryMatrix(fragmentos_M_menor_0, (100,100))
-# printRasterArray("m < 0", matriz_rasterizada_M_menor_0)
+# Segmento com m < 0
+reta_M_menor_0 = [(1, 8), (5, 1)]
+reta_normalizado_M_menor_0 = normalize_coordinates(reta_M_menor_0)
+fragmentos_M_menor_0 = rasterizar_linha(reta_normalizado_M_menor_0)
+matriz_rasterizada_M_menor_0 = intervalToBinaryMatrix(fragmentos_M_menor_0, (100,100))
+printRasterArray("m < 0", matriz_rasterizada_M_menor_0)
 
-# # Segmento com |Δx| > |Δy|
-# reta_X_maior_Y = [(1, 1), (8, 5)]
-# reta_normalizado_X_maior_Y = normalize_coordinates(reta_X_maior_Y)
-# fragmentos_X_maior_Y = rasterizar_linha(reta_normalizado_X_maior_Y)
-# matriz_rasterizada_X_maior_Y = intervalToBinaryMatrix(fragmentos_X_maior_Y, (100,100))
-# printRasterArray("|Δx| > |Δy|", matriz_rasterizada_X_maior_Y)
+# Segmento com |Δx| > |Δy|
+reta_X_maior_Y = [(1, 1), (8, 5)]
+reta_normalizado_X_maior_Y = normalize_coordinates(reta_X_maior_Y)
+fragmentos_X_maior_Y = rasterizar_linha(reta_normalizado_X_maior_Y)
+matriz_rasterizada_X_maior_Y = intervalToBinaryMatrix(fragmentos_X_maior_Y, (100,100))
+printRasterArray("|Δx| > |Δy|", matriz_rasterizada_X_maior_Y)
 
-# # Segmento com |Δy| > |Δx|
-# reta_Y_maior_X = [(1, 1), (5, 8)]
-# reta_normalizado_Y_maior_X = normalize_coordinates(reta_Y_maior_X)
-# fragmentos_Y_maior_X = rasterizar_linha(reta_normalizado_Y_maior_X)
-# matriz_rasterizada_Y_maior_X = intervalToBinaryMatrix(fragmentos_Y_maior_X, (100,100))
-# printRasterArray("|Δy| > |Δx|", matriz_rasterizada_Y_maior_X)
+# Segmento com |Δy| > |Δx|
+reta_Y_maior_X = [(1, 1), (5, 8)]
+reta_normalizado_Y_maior_X = normalize_coordinates(reta_Y_maior_X)
+fragmentos_Y_maior_X = rasterizar_linha(reta_normalizado_Y_maior_X)
+matriz_rasterizada_Y_maior_X = intervalToBinaryMatrix(fragmentos_Y_maior_X, (100,100))
+printRasterArray("|Δy| > |Δx|", matriz_rasterizada_Y_maior_X)
 
-# # Segmento vertical
-# reta_vertical = [(5, 2), (5, 8)]
-# reta_normalizado_vertical = normalize_coordinates(reta_vertical)
-# fragmentos_vertical = rasterizar_linha(reta_normalizado_vertical)
-# matriz_rasterizada_vertical = intervalToBinaryMatrix(fragmentos_vertical, (100,100))
-# printRasterArray("vertical", matriz_rasterizada_vertical)
+# Segmento vertical
+reta_vertical = [(5, 2), (5, 8)]
+reta_normalizado_vertical = normalize_coordinates(reta_vertical)
+fragmentos_vertical = rasterizar_linha(reta_normalizado_vertical)
+matriz_rasterizada_vertical = intervalToBinaryMatrix(fragmentos_vertical, (100,100))
+printRasterArray("vertical", matriz_rasterizada_vertical)
 
-# # Segmento horizontal
-# reta_horizontal = [(2, 5), (8, 5)]
-# reta_normalizado_horizontal = normalize_coordinates(reta_horizontal)
-# fragmentos_horizontal = rasterizar_linha(reta_normalizado_horizontal)
-# matriz_rasterizada_horizontal = intervalToBinaryMatrix(fragmentos_horizontal, (100,100))
-# printRasterArray("horizontal", matriz_rasterizada_horizontal)
+# Segmento horizontal
+reta_horizontal = [(2, 5), (8, 5)]
+reta_normalizado_horizontal = normalize_coordinates(reta_horizontal)
+fragmentos_horizontal = rasterizar_linha(reta_normalizado_horizontal)
+matriz_rasterizada_horizontal = intervalToBinaryMatrix(fragmentos_horizontal, (100,100))
+printRasterArray("horizontal", matriz_rasterizada_horizontal)
 
 # Pontos de controle e tangentes para 5 curvas de Hermite diferentes
 points1 = [(1, 1), (3, 5), (7, 2), (9, 6)]
@@ -255,39 +255,38 @@ for i, (points, tangents) in enumerate([(points_2, tangents_2), (points_3, tange
     curve_matrix = intervalToBinaryMatrix((x_vals, y_vals), (100, 100))
     printRasterArray(f"Hermite Curve with {len(points)} points", curve_matrix)
 
-# # Triângulos equiláteros
-# triangle1 = [(50, 10), (10, 90), (90, 90)]
-# triangle2 = [(50, 90), (10, 10), (90, 10)]
-# normalized_polygonT1 = normalize_coordinates(triangle1)
-# normalized_polygonT2 = normalize_coordinates(triangle2)
-# scanT1 = scanline(normalized_polygonT1, (1920,1080))
-# scanT2 = scanline(normalized_polygonT2, (1920,1080))
-# matrixT1 = intervalToBinaryMatrix(scanT1, (1920,1080))
-# matrixT2 = intervalToBinaryMatrix(scanT2, (1920,1080))
-# printRasterArray("Triangulo Equilatero", matrixT1)
-# printRasterArray("Triangulo Equilatero", matrixT2)
+# Triângulos equiláteros
+triangle1 = [(50, 10), (10, 90), (90, 90)]
+triangle2 = [(50, 90), (10, 10), (90, 10)]
+normalized_polygonT1 = normalize_coordinates(triangle1)
+normalized_polygonT2 = normalize_coordinates(triangle2)
+scanT1 = scanline(normalized_polygonT1, (1920,1080))
+scanT2 = scanline(normalized_polygonT2, (1920,1080))
+matrixT1 = intervalToBinaryMatrix(scanT1, (1920,1080))
+matrixT2 = intervalToBinaryMatrix(scanT2, (1920,1080))
+printRasterArray("Triangulo Equilatero", matrixT1)
+printRasterArray("Triangulo Equilatero", matrixT2)
 
-# # Quadrados
-# square1 = [(20, 20), (80, 20), (80, 80), (20, 80)]
-# square2 = [(30, 30), (70, 30), (70, 70), (30, 70)]
-# normalized_polygonQ1 = normalize_coordinates(square1)
-# normalized_polygonQ2 = normalize_coordinates(square2)
-# scanQ1 = scanline(normalized_polygonQ1, (1920,1080))
-# scanQ2 = scanline(normalized_polygonQ2, (1920,1080))
-# matrixQ1 = intervalToBinaryMatrix(scanQ1, (1920,1080))
-# matrixQ2 = intervalToBinaryMatrix(scanQ2, (1920,1080))
-# printRasterArray("Triangulo Equilatero", matrixQ1)
-# printRasterArray("Triangulo Equilatero", matrixQ2)
+# Quadrados
+square1 = [(20, 20), (80, 20), (80, 80), (20, 80)]
+square2 = [(30, 30), (70, 30), (70, 70), (30, 70)]
+normalized_polygonQ1 = normalize_coordinates(square1)
+normalized_polygonQ2 = normalize_coordinates(square2)
+scanQ1 = scanline(normalized_polygonQ1, (1920,1080))
+scanQ2 = scanline(normalized_polygonQ2, (1920,1080))
+matrixQ1 = intervalToBinaryMatrix(scanQ1, (1920,1080))
+matrixQ2 = intervalToBinaryMatrix(scanQ2, (1920,1080))
+printRasterArray("Triangulo Equilatero", matrixQ1)
+printRasterArray("Triangulo Equilatero", matrixQ2)
 
-# # Hexágonos
-# hexagon1 = [(50, 10), (85, 30), (85, 70), (50, 90), (15, 70), (15, 30)]
-# hexagon2 = [(50, 30), (75, 45), (75, 75), (50, 90), (25, 75), (25, 45)]
-# normalized_polygonH1 = normalize_coordinates(hexagon1)
-# normalized_polygonH2 = normalize_coordinates(hexagon2)
-# scanH1 = scanline(normalized_polygonH1, (1920,1080))
-# scanH2 = scanline(normalized_polygonH2, (1920,1080))
-# matrixH1 = intervalToBinaryMatrix(scanH1, (1920,1080))
-# matrixH2 = intervalToBinaryMatrix(scanH2, (1920,1080))
-# printRasterArray("Triangulo Equilatero", matrixH1)
-# printRasterArray("Triangulo Equilatero", matrixH2)
-
+# Hexágonos
+hexagon1 = [(50, 10), (85, 30), (85, 70), (50, 90), (15, 70), (15, 30)]
+hexagon2 = [(50, 30), (75, 45), (75, 75), (50, 90), (25, 75), (25, 45)]
+normalized_polygonH1 = normalize_coordinates(hexagon1)
+normalized_polygonH2 = normalize_coordinates(hexagon2)
+scanH1 = scanline(normalized_polygonH1, (1920,1080))
+scanH2 = scanline(normalized_polygonH2, (1920,1080))
+matrixH1 = intervalToBinaryMatrix(scanH1, (1920,1080))
+matrixH2 = intervalToBinaryMatrix(scanH2, (1920,1080))
+printRasterArray("Triangulo Equilatero", matrixH1)
+printRasterArray("Triangulo Equilatero", matrixH2)
