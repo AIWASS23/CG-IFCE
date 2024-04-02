@@ -187,7 +187,7 @@ def regular_hexagon(center, side_length, angle):
         vertices.append([x, y])
     return np.matrix(vertices)
 
-def maior_valor(tupla):
+def maior_valor(tupla: tuple) -> int :
     max_valor = max(tupla)
     inteiro = int(max_valor)
     return inteiro
