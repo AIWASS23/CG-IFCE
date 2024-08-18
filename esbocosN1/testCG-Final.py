@@ -1,5 +1,5 @@
 import numpy as np
-from cgfinal import (
+from esbocosN1.cgfinal import (
     normalize_coordinates,
     printRasterArray,
     intervalToBinaryMatrix,
