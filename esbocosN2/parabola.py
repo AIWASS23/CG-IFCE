@@ -4,7 +4,7 @@ import ctypes
 import glfw
 import glm
 import math
-import geometriaRosquinha
+import esbocosN2.geometriaParabola as geometriaParabola
 
 VERTEX_SHADER = """
 #version 400
@@ -55,9 +55,9 @@ def compilaShaders():
     GL.glDeleteProgram(progId)
     raise Exception(error)
 
-def rosquinha(): 
+def parabola(): 
 
-    posicao = geometriaRosquinha.rosquinha()
+    posicao = geometriaParabola.parabola()
 
     VAO = GL.glGenVertexArrays(1)
     GL.glBindVertexArray(VAO)
@@ -71,11 +71,11 @@ def rosquinha():
     return VAO
 
 def inicializa():
-    global progId, rosquinhaVAO
+    global progId, parabolaVAO
     GL.glEnable(GL.GL_DEPTH_TEST)
     GL.glEnable(GL.GL_MULTISAMPLE)
     progId = compilaShaders()
-    rosquinhaVAO = rosquinha()
+    parabolaVAO = parabola()
 
 a = 0
 def desenha():
@@ -88,7 +88,7 @@ def desenha():
     model = glm.rotate(a,glm.vec3(0,1,0))
     mvp = projection * camera * model
 
-    GL.glBindVertexArray(rosquinhaVAO)
+    GL.glBindVertexArray(parabolaVAO)
     GL.glUseProgram(progId)
     GL.glUniformMatrix4fv(GL.glGetUniformLocation(progId, "mvp"),1,GL.GL_FALSE,glm.value_ptr(mvp))
     GL.glDrawArrays(GL.GL_POINTS,0,2500)
@@ -104,7 +104,7 @@ def main():
     glfw.window_hint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
     glfw.window_hint(glfw.OPENGL_FORWARD_COMPAT, GL.GL_TRUE)
     glfw.window_hint(glfw.SAMPLES, 4)
-    window = glfw.create_window(800, 600, "Rosquinha", None, None)
+    window = glfw.create_window(800, 600, "Parabola", None, None)
     if not window:
         glfw.terminate()
         return
